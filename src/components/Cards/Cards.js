@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card/Card";
 import classes from "./Cards.module.css";
 import axios from "axios";
+import Button from "../reusable/Button/Button";
 
 const Cards = () => {
   const [users, setUsers] = useState([]);
@@ -24,6 +25,7 @@ const Cards = () => {
         console.log(err);
       });
   };
+
   useEffect(() => {
     loadData();
     console.log(users);
@@ -41,8 +43,9 @@ const Cards = () => {
         {users.map((user) => {
           return (
             <Card
+              key={user.id}
               picture={user.picture}
-              title={user.title}
+              title={user.title.charAt(0).toUpperCase() + user.title.slice(1)}
               firstName={user.firstName}
               lastName={user.lastName}
               email={user.email}
@@ -51,6 +54,11 @@ const Cards = () => {
           );
         })}
       </div>
+      <Button
+        onClick={() => {
+          setLimit(limit + 15);
+        }}
+      />
     </div>
   );
 };
