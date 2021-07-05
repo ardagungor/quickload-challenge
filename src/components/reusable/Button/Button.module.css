@@ -1,0 +1,19 @@
+.button {
+  background-color: gray;
+  border: none;
+  width: auto;
+  height: 30px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 1px;
+  -webkit-box-shadow: 7px 7px 6px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 7px 6px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 7px 7px 6px 1px rgba(0, 0, 0, 0.75);
+  margin-bottom: 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: aqua;
+}
