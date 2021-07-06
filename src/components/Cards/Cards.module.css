@@ -41,4 +41,14 @@
   .cards {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .topRow {
+    flex-direction: column;
+  }
+
+  .searchRow {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
 }

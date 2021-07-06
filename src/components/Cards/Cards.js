@@ -3,12 +3,13 @@ import Card from "./Card/Card";
 import classes from "./Cards.module.css";
 import axios from "axios";
 import Button from "../reusable/Button/Button";
+import Spinner from "../reusable/Spinner/Spinner";
 
 const Cards = () => {
   const [users, setUsers] = useState([]);
   const [users2, setUsers2] = useState([]);
   const [limit, setLimit] = useState(15);
-  const [id, setId] = useState("");
+  const [loading, setLoading] = useState(true);
   const [text, setText] = useState("");
 
   const loadData = () => {
@@ -20,55 +21,20 @@ const Cards = () => {
       },
     })
       .then((res) => {
-        console.log(res.data.data);
         setUsers(res.data.data);
         setUsers2(res.data.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  const loadFullProfile = () => {
-    axios({
-      url: "https://dummyapi.io/data/api/user/" + id,
-      method: "get",
-      headers: {
-        "app-id": "60df4c7ef681a11a9025e58c",
-      },
-    })
-      .then((res) => {
-        console.log(res.data.data);
-        setUsers(res.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  // const filter = () => {
-  //   const updatedUsers = users.filter((user) => {
-  //     return user.firstName.toLowerCase().search(text.toLowerCase());
-  //   });
-  //   setUsers(updatedUsers);
-  //   console.log(users);
-  // };
-
-  // const filter = (e) => {
-  //   const updatedUsers = users.filter((user) => {
-  //     return (
-  //       user.firstName.toLowerCase().search(e.target.value.toLowerCase()) !== -1
-  //     );
-  //   });
-  //   setUsers(updatedUsers);
-  //   console.log(users);
-  // };
   const filter = () => {
     const updatedUsers = users.filter((user) => {
       return user.firstName.toLowerCase().search(text.toLowerCase()) !== -1;
     });
     setUsers(updatedUsers);
-    console.log(users);
   };
   const removeFilter = () => {
     setUsers(users2);
@@ -82,13 +48,12 @@ const Cards = () => {
       firstName={user.firstName}
       lastName={user.lastName}
       email={user.email}
-      // location={user.location.country}
+      id={user.id}
     />
   ));
 
   useEffect(() => {
     loadData();
-    console.log(users);
   }, [limit]);
 
   return (
@@ -105,27 +70,12 @@ const Cards = () => {
               setText(e.target.value);
             }}
             value={text}
-            // onChange={filter}
           />
           <Button text="Filter" onClick={filter} />
         </div>
       </div>
       <div className={classes.cards}>
-        {
-          /* {users.map((user) => {
-          return (
-            <Card
-              key={user.id}
-              picture={user.picture}
-              title={user.title.charAt(0).toUpperCase() + user.title.slice(1)}
-              firstName={user.firstName}
-              lastName={user.lastName}
-              email={user.email}
-              location={user.location}
-            />
-          );
-        })} */ userList
-        }
+        {loading ? <Spinner/> : userList}
       </div>
       <Button
         text="Load More"
