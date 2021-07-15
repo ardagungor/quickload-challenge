@@ -1,19 +1,23 @@
 .button {
-  background-color: gray;
+  background-color: #eeeeee;
   border: none;
   width: auto;
   height: 30px;
   font-weight: bold;
   padding-left: 10px;
   padding-right: 10px;
-  box-shadow: 1px;
-  -webkit-box-shadow: 7px 7px 6px 1px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 7px 7px 6px 1px rgba(0, 0, 0, 0.75);
-  box-shadow: 7px 7px 6px 1px rgba(0, 0, 0, 0.75);
-  margin-bottom: 5px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  color: #52057b;
+  -webkit-box-shadow: 3px 6px 17px 0px rgba(178, 177, 185, 1);
+  -moz-box-shadow: 3px 6px 17px 0px rgba(178, 177, 185, 1);
+  box-shadow: 3px 6px 17px 0px rgba(178, 177, 185, 1);
 }
 
 .button:hover {
   cursor: pointer;
-  background-color: aqua;
+  background-color: #ffd523;
+  color: #21094e;
 }

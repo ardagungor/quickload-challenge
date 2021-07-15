@@ -32,7 +32,11 @@ const Cards = () => {
 
   const filter = () => {
     const updatedUsers = users.filter((user) => {
-      return user.firstName.toLowerCase().search(text.toLowerCase()) !== -1;
+      return (
+        user.firstName.toLowerCase().search(text.toLowerCase()) !== -1 ||
+        user.lastName.toLowerCase().search(text.toLowerCase()) !== -1 ||
+        user.email.toLowerCase().search(text.toLowerCase()) !== -1
+      );
     });
     setUsers(updatedUsers);
   };
@@ -59,7 +63,7 @@ const Cards = () => {
   return (
     <div>
       <div className={classes.topRow}>
-        <h3>USER LIST</h3>
+        <h2>USER LIST</h2>
         <div className={classes.searchRow}>
           <Button text="Remove filter" onClick={removeFilter} />
           <input
@@ -74,9 +78,7 @@ const Cards = () => {
           <Button text="Filter" onClick={filter} />
         </div>
       </div>
-      <div className={classes.cards}>
-        {loading ? <Spinner/> : userList}
-      </div>
+      <div className={classes.cards}>{loading ? <Spinner /> : userList}</div>
       <Button
         text="Load More"
         onClick={() => {

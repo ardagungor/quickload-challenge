@@ -9,6 +9,15 @@
   justify-content: space-between;
   padding-left: 70px;
   padding-right: 70px;
+  padding-bottom: 30px;
+}
+
+h2 {
+  color: #52057b;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 .searchRow {
@@ -17,8 +26,9 @@
 
 .search {
   height: 22px;
-  border: 3px solid black;
   border-radius: 5px;
+  margin-bottom: 10px;
+  width: 200px;
 }
 @media screen and (max-width: 1550px) {
   .cards {
@@ -50,5 +60,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
+    margin: auto;
+    padding: 10px;
   }
 }

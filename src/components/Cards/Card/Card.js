@@ -36,21 +36,29 @@ const Card = (props) => {
         <img
           src={props.picture}
           alt={props.firstname + " " + props.lastName}
-          width="60%"
-          height="auto"
+          className={classes.avatarImg}
         />
       </div>
       <div className={classes.details}>
         <div>
-          {props.title} {props.firstName} {props.lastName},{" "}
-          {loading ? (
-            <Spinner />
-          ) : (
-            new Date().getFullYear() - birthday.substring(0, 4)
-          )}
+          <h3>
+            {props.title} {props.firstName} {props.lastName}
+          </h3>{" "}
+          <h4>
+            {loading ? (
+              <Spinner />
+            ) : (
+              new Date().getFullYear() - birthday.substring(0, 4)
+            )}{" "}
+          </h4>
         </div>
-        <div>{props.email}</div>
-        <div>{loading ? <Spinner /> : country}</div>
+        <div>
+          <a href={`mailto:${props.email}`}>{props.email}</a>
+        </div>
+        <h4>
+          {" "}
+          <div>{loading ? <Spinner /> : country}</div>
+        </h4>
       </div>
     </div>
   );

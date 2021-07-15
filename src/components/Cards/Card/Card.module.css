@@ -1,20 +1,53 @@
 .cardContainer {
   padding-top: 30px;
-  border: 2px solid black;
   border-radius: 5px;
   margin-right: 70px;
   margin-left: 70px;
   margin-bottom: 20px;
+  background-color: #eeeeee;
+  color: #4ca1a3;
+  transition: transform 0.3s;
+  -webkit-box-shadow: 3px 6px 17px 0px rgba(178, 177, 185, 1);
+  -moz-box-shadow: 3px 6px 17px 0px rgba(178, 177, 185, 1);
+  box-shadow: 3px 6px 17px 0px rgba(178, 177, 185, 1);
+}
+
+.cardContainer:hover {
+  transform: scale(1.05);
+  -webkit-box-shadow: 3px 6px 17px 0px rgba(81, 18, 129, 1);
+  -moz-box-shadow: 3px 6px 17px 0px rgba(81, 18, 129, 1);
+  box-shadow: 3px 6px 17px 0px rgba(81, 18, 129, 1);
 }
 
 .avatar {
-  border-bottom: 1px solid black;
   padding-top: 0;
 }
 
 .details {
-  text-align: left;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.avatarImg {
+  border-radius: 40%;
+  width: 60%;
+  height: auto;
+}
+
+h3 {
+  color: #52057b;
+  margin-bottom: 0;
+}
+
+h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+a {
+  color: #548ca8;
+}
+
+a:hover {
+  color: #476072;
 }
