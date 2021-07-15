@@ -1,5 +1,1 @@
-
-
-## Todos
-* api call from Card component to get age and country?
-* improve responsiveness
+## The website can be viewed by clicking [here](https://ardagungor-quickload-challenge.netlify.app/)
